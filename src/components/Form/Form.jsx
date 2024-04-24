@@ -12,15 +12,15 @@ const Form = () => {
         tg.MainButton.setParams({
             text:'Отправить данные'
         })
-    }, [tg])
+    }, [])
 
     useEffect(() => {
         if(!street || !country){
             tg.MainButton.hide();
-        }else{
+        } else{
             tg.MainButton.show();
         }
-    }, [country, street, tg]);
+    }, [country, street]);
 
 
 
