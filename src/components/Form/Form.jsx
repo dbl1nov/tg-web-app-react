@@ -20,7 +20,7 @@ const Form = () => {
         }else{
             tg.MainButton.show();
         }
-    }, [tg,street,country]);
+    }, [country, street, tg]);
 
 
 

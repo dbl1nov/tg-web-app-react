@@ -14,7 +14,6 @@ const Header = () => {
         </span>
     </div>
 )
-    ;
 };
 
 export default Header;
