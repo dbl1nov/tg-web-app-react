@@ -17,7 +17,7 @@ const getTotalPrice = (items  = []) => {
 }
 
 const ProductList = () => {
-    const [addedItems, setAddedItems] = useState();
+    const [addedItems, setAddedItems] = useState([]);
     const {tg} = useTelegram()
 
     const onSendData = useCallback((queryId) => {
@@ -40,7 +40,7 @@ const ProductList = () => {
         return () => {
             tg.WebApp.offEvent('mainButtonClicked', onSendData)
         }
-    }, [onSendData]);
+    }, [onSendData, tg]);
 
 
     const onAdd = (product) => {
@@ -66,9 +66,10 @@ const ProductList = () => {
     }
     return (
         <div className={'list'}>
-            {products.map(item=>(
+            {products.map(product =>(
                 <ProductItem
-                    product={item}
+                    key={product.id}
+                    product={product}
                     onAdd={onAdd}
                     className={'item'}
 
