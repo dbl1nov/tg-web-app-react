@@ -22,7 +22,7 @@ const Form = () => {
         return () => {
             tg.WebApp.offEvent('mainButtonClicked', onSendData)
         }
-    }, [onSendData]);
+    }, [onSendData, tg]);
 
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const Form = () => {
         } else{
             tg.MainButton.show();
         }
-    }, [country, street]);
+    }, [country, street, tg]);
 
 
 
