@@ -10,7 +10,7 @@ const products = [
     {id: 4, title: 'Product t-short', price: 4000, description: 'Product t-short, the best quality'},
 ]
 
-const getTotalPrice = (items = []) => {
+const getTotalPrice = (items  = []) => {
     return items.reduce((acc, item) => {
         return acc += item.price;
     }, 0)
@@ -20,7 +20,7 @@ const ProductList = () => {
     const [addedItems, setAddedItems] = useState();
     const {tg} = useTelegram()
 
-    const onSendData = useCallback(() => {
+    const onSendData = useCallback((queryId) => {
         const data = {
            products: addedItems,
             totalPrice: getTotalPrice(addedItems),
@@ -45,7 +45,7 @@ const ProductList = () => {
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
-        let newItems = [];
+        let newItems =[];
 
         if (alreadyAdded) {
             newItems = addedItems.filter(item => item.id === product.id);
